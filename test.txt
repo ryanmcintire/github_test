@@ -2,5 +2,4 @@ Here's new material for the file.
 
 Even more...
 
-This is the most recent tag. 
-
+This will not have a tag. 
