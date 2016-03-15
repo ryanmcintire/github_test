@@ -9,7 +9,7 @@ git branch -D $branch
 git push origin --delete $branch
 
 echo "Geting most recent alpha release"
-git fetch upstream +refs/tags/*:refs/tags/remote/*
+git fetch origin +refs/tags/*:refs/tags/remote/*
 recent_tag=$(git describe --bbrev=0)
 echo "Most recent tag: $recent_tag"
 
