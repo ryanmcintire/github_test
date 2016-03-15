@@ -2,12 +2,4 @@ Here's new material for the file.
 
 Even more...
 
-This will not have a tag. 
-
-And this will be the last commit, also with no tag. 
-
-No tag.  
-
-No tag.  
-
-No tag.
+I'm going to tag this remotely.  
