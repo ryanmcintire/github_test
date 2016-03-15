@@ -9,13 +9,19 @@ git branch -D $branch
 git push origin --delete $branch
 
 echo "Geting most recent alpha release"
-git fetch origin +refs/tags/*:refs/tags/remote/*
-recent_tag=$(git describe --bbrev=0)
-echo "Most recent tag: $recent_tag"
+git fetch --tags
+newest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
 
-echo "Creating branch $branch from "
-git checkout -B $branch $recent_tag
-git push origin $branch:$branch
-git checkout master
+if [ -n "$newest_tag" ]; then
+    echo "Most recent release: $newest_tag"
+    echo "Creating branch $branch release $recent_tag"
+    git checkout -B $branch $newest_tag
+    git push origin $branch:$branch
+    git checkout master
+    
 
-echo "Finished"
+else 
+    echo "Error - unable to obtain latest release."
+fi
+
+echo "Finished."
